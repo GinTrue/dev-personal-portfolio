@@ -63,7 +63,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>
-            © {new Date().getFullYear()} Ron Rontos. All rights reserved.
+            © {new Date().getFullYear()} Ronnel Rontos. All rights reserved.
           </span>
           <span className="flex items-center gap-1">
             Built with <Heart className="w-4 h-4 text-red-500" /> using React & Tailwind
