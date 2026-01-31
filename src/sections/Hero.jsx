@@ -76,9 +76,14 @@ export const Hero = () => {
                         </div>
                         { /* CTAs*/ }
                         <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+                            <a
+                            href="#contact"
+                            onClick={() => setIsMobileMenoOpen(false)}
+                            >
                             <Button size="lg">
                                 Contact Me <ArrowRight className="w-5 h-5" />
                             </Button>
+                            </a>
                             <AnimatedBorderButton />
                         </div>
                         { /* Social Links */ }
@@ -110,7 +115,7 @@ export const Hero = () => {
                             />
                             <div className="relative glass rounded-3xl p-2 glow-border">
                                 <img 
-                                    src="/profile-photo.jfif" 
+                                    src="/profile-photo.png" 
                                     alt="Ron" 
                                     className="w-full aspect-[4/5] object-cover rounded-2xl"
                                 />
