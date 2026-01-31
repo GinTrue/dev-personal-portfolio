@@ -202,7 +202,7 @@ export const Contact = () => {
                                 {contactInfo.map((item, i) => (
 
                                     <a key={i}
-                                       href="item.href"
+                                       href={item.href}
                                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors "
                                     >
                                     
