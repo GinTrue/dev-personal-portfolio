@@ -75,7 +75,8 @@ export const Hero = () => {
                             </p>
                         </div>
                         { /* CTAs*/ }
-                        <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+                        <div className="flex flex-nowrap gap-4 animate-fade-in animation-delay-300">
+
                             <a
                             href="#contact"
                             onClick={() => setIsMobileMenoOpen(false)}
