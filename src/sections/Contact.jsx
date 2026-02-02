@@ -207,7 +207,8 @@ export const Contact = () => {
                                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors "
                                     >
                                     
-                                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                                    <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] flex-shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+
                                         <item.icon className="w-5 h-5 text-muted-foreground" />
                                     </div>
                                     <div>
