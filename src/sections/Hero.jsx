@@ -75,15 +75,15 @@ export const Hero = () => {
                             </p>
                         </div>
                         { /* CTAs*/ }
-                        <div className="flex flex-nowrap gap-4 animate-fade-in animation-delay-300">
+                       <div className="flex justify-center gap-3 animate-fade-in animation-delay-300">
 
                             <a
                             href="#contact"
                             onClick={() => setIsMobileMenoOpen(false)}
                             >
-                            <Button size="lg">
-                                Contact Me <ArrowRight className="w-5 h-5" />
-                            </Button>
+<Button className="w-[160px] h-12 text-base whitespace-nowrap">
+  Contact Me <ArrowRight className="w-5 h-5" />
+</Button>
                             </a>
                             <AnimatedBorderButton />
                         </div>

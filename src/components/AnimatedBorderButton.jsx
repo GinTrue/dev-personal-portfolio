@@ -9,16 +9,17 @@ export const AnimatedBorderButton = () => {
       rel="noopener noreferrer"
       className="inline-block"
     >
-      <button
-        type="button"
-        className="relative bg-transparent border border-border 
-        text-foreground hover:border-primary/50 transition-all 
-        duration-1000 focus:outline-none focus-visible:ring-2 
-        focus-visible:ring-primary focus-visible:ring-offset-2 
-        disabled:opacity-50 disabled:cursor-not-allowed group 
-        w-[180px] px-0 py-4 text-lg font-medium rounded-full overflow-visible 
-        animated-border"
-      >
+<button
+  type="button"
+  className="relative bg-transparent border border-border 
+  text-foreground hover:border-primary/50 transition-all 
+  duration-1000 focus:outline-none focus-visible:ring-2 
+  focus-visible:ring-primary focus-visible:ring-offset-2 
+  disabled:opacity-50 disabled:cursor-not-allowed group 
+  w-[160px] h-12 text-base font-medium rounded-full 
+  flex items-center justify-center whitespace-nowrap 
+  overflow-visible animated-border"
+>
         <svg
           className="absolute left-0 top-0 w-full h-full pointer-events-none"
           viewBox="0 0 200 60"
