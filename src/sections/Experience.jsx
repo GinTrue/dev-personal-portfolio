@@ -1,5 +1,25 @@
 const experiences = [
   {
+    period: "February 2026 – Present",
+    role: "System Engineer",
+    company: "Inaveit Systems Technologies Inc.",
+    description:
+      "Leading Laravel-based web systems development with PHP and MySQL, structuring reusable backend modules, and building jQuery/AJAX-driven interfaces. Implemented API and webhook integrations, automated service workflows, and optimized data flow for secure, scalable business applications.",
+    technologies: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "jQuery",
+      "AJAX",
+      "API",
+      "Webhooks",
+      "REST API",
+      "Git",
+      "Bootstrap"
+    ],
+    current: true
+  },
+  {
     period: "April 2025 – January 2026",
     role: "Full Stack Web Developer",
     company: "Exponential Technologies",
@@ -17,7 +37,7 @@ const experiences = [
       "Axios",
       "Git"
     ],
-    current: true
+    current: false
   },
   {
     period: "February 2022 – April 2025",
@@ -66,7 +86,7 @@ export const Experience = () => {
                         Experience that <span className="font-serif italic font-normal text-white"> speaks.</span>
                     </h2>
                     <p className="text-muted-foreground animate-fade-in animation-delay-200">
-                        A timeline of my professional growth, from curious IT Assistant to Junior Developer
+                        A timeline of my professional growth, from IT support and web automation to system engineering with Laravel, APIs and webhooks.
                     </p>
                 </div>
                 {/* Timeline */}
