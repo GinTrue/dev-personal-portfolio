@@ -4,16 +4,17 @@ const experiences = [
         role: "System Engineer",
         company: "Inaveit Systems Technologies Inc.",
         description:
-            "Leading Laravel-based web systems development with PHP and MySQL, structuring reusable backend modules, and building jQuery/AJAX-driven interfaces. Implemented API and webhook integrations, automated service workflows, and optimized data flow for secure, scalable business applications.",
+            "Leading Laravel-based web systems development with PHP and MySQL, structuring reusable backend modules, and building jQuery/AJAX-driven interfaces. Implemented API and webhook integrations, automated service workflows, and developed Python-powered scraping and report generation pipelines that extract MySQL data and convert it into Excel-ready exports. Provides L1/L2 support and root directory setup/configuration for application deployments.",
         technologies: [
             "Laravel",
             "PHP",
             "MySQL",
+            "Python",
             "jQuery",
             "AJAX",
             "API",
             "Webhooks",
-            "REST API",
+            "Excel Export",
             "Git",
             "Bootstrap"
         ],
