@@ -1,165 +1,42 @@
-import { Button } from "@/components/Button";
+import { ArrowDown, ArrowUpRight, Code2, Github, Linkedin, MapPin } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { ArrowRight, ChevronDown, Download, Github, Linkedin, Twitter } from "lucide-react";
 
-const skills = [
-    "PHP",
-    "MySQL",
-    "HTML5",
-    "CSS3",
-    "Bootstrap",
-    "JavaScript",
-    "jQuery",
-    "AJAX",
-    "Laravel",
-    "Git",
-    "REST APIs",
-    "Django",
-    "Postgresql",
-    "Axios",
-];
+const technologies = ["Laravel", "PHP", "JavaScript", "MySQL", "Python", "Django", "PostgreSQL", "REST APIs"];
 
-export const Hero = () => {
-    return (
-        <section className="relative min-h-screen flex items-center overflow-hidden">
-            { /* Bg */ }
-            <div className="absolute inset-0">
-                <img  
-                src="hero-bg.jpg" 
-                alt="Hero Image" 
-                className="w-full h-full object-cover opacity-40"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
-            </div>
-            { /* Green Dots */ }
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(30)].map((_, i) =>(
-                    <div 
-                        className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-                        style={{
-                            background: "#20B2A6",
-                            left: `${Math.random()*100}%`,
-                            top: `${Math.random()*100}%`,
-                            animation: `slow-drift ${15 + Math.random()*20
-                            }s ease-in-out infinite`,
-                            animationDelay: `${Math.random()*5}s`,  
-                        }}
-                    />
-                ))}
-            </div>
-            { /* Content */ }
-            <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    { /* Left Column Text Content */ }
-                    <div className="space-y-8">
-                        <div className="animate-fade-in">
-                            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-                                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                                    Junior Software Developer • IT Assistant
-                            </span>
-                        </div>
-                        { /* Headline */ }
-                        <div className="space-y-4">
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                                Great <span className="text-primary glow-text">leader</span>
-                                <br />
-                                is always a
-                                <br />
-                                good <span className="font-serif italic font-normal text-white">
-                                student.
-                                </span>
-                            </h1>
-                            <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-800">
-                                I’m Ron, a Junior Software Developer building in-house systems with PHP, MySQL, HTML, CSS, Bootstrap, JavaScript, 
-                                jQuery, and AJAX—turning operational needs into scalable web solutions.
-                            </p>
-                        </div>
-                        { /* CTAs*/ }
-                       <div className="flex justify-center gap-3 animate-fade-in animation-delay-300">
-
-                            <a
-                            href="#contact"
-                            onClick={() => setIsMobileMenoOpen(false)}
-                            >
-<Button className="w-[160px] h-12 text-base whitespace-nowrap">
-  Contact Me <ArrowRight className="w-5 h-5" />
-</Button>
-                            </a>
-                            <AnimatedBorderButton />
-                        </div>
-                        { /* Social Links */ }
-                        <div className="flex items-center gap-4 aniamte-fade-n animation-delay-400">
-                            <span className="text-sm text-muted-foreground">Follow Me</span>
-                            {[
-                                { icon: Github, href: "https://github.com/GinTrue/"},
-                                { icon: Linkedin, href: "https://www.linkedin.com/in/darylrontos/"},
-                                { icon: Twitter, href: "#"},
-                            ].map((social, idx) => (
-                                <a 
-                                    key={idx} 
-                                    href={social.href}
-                                    className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                                >
-                                    {<social.icon className="w-5 h-5"/>}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                    { /* Right Column Profile Image */ }
-                    <div className="relative animate-fade-in animation-delayh-300">
-                        { /* Profile Image */ }
-                        <div className="relative max-w-md mx-auto">
-                            <div
-                                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via transparent
-                                to-primary/10 blur-2xl animate-pulse
-                                "
-                            />
-                            <div className="relative glass rounded-3xl p-2 glow-border">
-                                <img 
-                                    src="/profile-photo.png" 
-                                    alt="Ron" 
-                                    className="w-full aspect-[4/5] object-cover rounded-2xl"
-                                />
-                                { /* Floating Badge */ }
-                                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"/>
-                                        <span className="text-sm font-medium">Available for work</span>
-                                    </div>
-                                </div>
-                                { /* Stats Badge */ }
-                                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                                    <div className="text-2xl font-bold text-primary">3+</div>
-                                    <div className="text-xs text-muted-foreground">Years Exp.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                { /* Skills Section */ }
-                <div className="mt-20 animate-fade-in animation-delay-600">
-                    <p className="text-sm text-muted-foreground mb-6 text-center">
-                        Technologies I work with
-                    </p>
-                    <div className="relative overflow-hidden">
-                        <div className="flex animate-marquee">
-                            {[...skills, ...skills].map((skill,idx) => (
-                                <div key={idx} className="flex-shrink-0 px-8 py-4">
-                                    <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">{skill}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
-                <a href="#about"
-                    className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary"
-                >
-                    <span className="text-xs uppercase tracking-wider">Scroll</span>
-                    <ChevronDown className="w-6 h-6 animate-bounce" />
-                </a>
-            </div>
-        </section>
-    );
-}
+export const Hero = () => (
+  <section id="home" className="hero section-shell" aria-labelledby="hero-title">
+    <div className="hero-grid" aria-hidden="true" />
+    <div className="page-container hero-content">
+      <div className="hero-copy">
+        <div className="availability"><span className="status-dot" /> Open to new opportunities</div>
+        <p className="hero-intro">Hi, I’m Ron <span className="intro-line" /></p>
+        <h1 id="hero-title">Thoughtful code.<br /><span>Real-world impact.</span></h1>
+        <p className="hero-description">I’m Ronnel Daryl Rontos, a software developer turning complex business workflows into simple, reliable web experiences.</p>
+        <div className="hero-actions">
+          <a href="#projects" className="button button-primary">Explore my work <ArrowUpRight size={18} /></a>
+          <AnimatedBorderButton />
+        </div>
+        <div className="hero-socials">
+          <a href="https://github.com/GinTrue/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ron’s GitHub"><Github size={19} /></a>
+          <a href="https://www.linkedin.com/in/darylrontos/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ron’s LinkedIn"><Linkedin size={19} /></a>
+          <span className="social-divider" />
+          <span><MapPin size={14} /> Based in the Philippines</span>
+        </div>
+      </div>
+      <div className="hero-portrait">
+        <div className="portrait-frame">
+          <div className="portrait-topline"><span>THE PERSON BEHIND THE CODE</span><span className="portrait-cross">+</span></div>
+          <div className="portrait-image"><img src="/profile-photo.png" alt="Ronnel Daryl Rontos, software developer" fetchPriority="high" width="1024" height="1024" /></div>
+          <div className="portrait-caption"><div><strong>Ronnel Daryl Rontos</strong><span>System Engineer & Web Developer</span></div><Code2 size={24} /></div>
+        </div>
+        <div className="portrait-note"><span className="status-dot" /><div>Currently building at<strong>Inaveit Systems Technologies</strong></div><ArrowUpRight size={17} /></div>
+        <span className="portrait-coordinate" aria-hidden="true">IDEAS → SYSTEMS → IMPACT</span>
+      </div>
+    </div>
+    <div className="page-container hero-bottom">
+      <a href="#about" className="scroll-link"><span className="scroll-icon"><ArrowDown size={15} /></span> A little more about me</a>
+      <span className="hero-bottom-note">Built with curiosity. Refined with purpose.</span>
+    </div>
+    <div className="technology-strip"><div className="page-container technology-inner"><span className="technology-label">MY EVERYDAY TOOLKIT</span><div className="technology-list">{technologies.map((technology) => <span key={technology}>{technology}</span>)}</div></div></div>
+  </section>
+);

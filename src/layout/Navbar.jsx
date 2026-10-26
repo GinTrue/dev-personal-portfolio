@@ -1,83 +1,66 @@
-import { Button } from "@/components/Button";
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
-    {href: "#about", label:"About"},
-    {href: "#projects", label:"Projects"},
-    {href: "#experience", label:"Experience"},
-    {href: "#testimonials", label:"Testimonials"},
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#testimonials", label: "Kind words" },
 ];
 
 export const Navbar = () => {
-    const [isMobileMenuOpen, setIsMobileMenoOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
 
-    useEffect(() => {
-        const HandleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", HandleScroll);
-        return () => window.removeEventListener("scroll", HandleScroll);
-    }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) setActiveSection(entry.target.id); });
+    }, { rootMargin: "-20% 0px -60% 0px", threshold: 0 });
+    document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
-    return (
-        <header className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"} z-50`}>
-            <nav className="container mx-auto px-6 flex items-center justify-between">
-                <a href="" className="text-xl font-bold tracking-tight hover:text-primary">
-                    RR<span className="text-primary">.</span>
-                </a>
-                {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-1">
-                    <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
-                        {navLinks.map((link,index) => (
-                            <a href={link.href} 
-                                key={index} 
-                                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-                {/* CTA Button */}
-                <div className="hidden md:block">
-                    <a href="#contact">
-                        <Button size="sm">Contact Me</Button>
-                    </a>
-                </div>
-                {/* Mobile Menu Button */}
-                <button className="md:hidden p-2 text-foreground cursor-pointer" 
-                    onClick={() => setIsMobileMenoOpen((prev) => !prev )}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </nav>
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden glass-strong animate-fade-in">
-                    <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-                        {navLinks.map((link,index) => (
-                            <a href={link.href} 
-                                key={index} 
-                                onClick={() => setIsMobileMenoOpen(false)}
-                                className="text-lg text-muted-foreground hover:text-foreground py-2"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                        <a
-                        href="#contact"
-                        onClick={() => setIsMobileMenoOpen(false)}
-                        >
-                        <Button className="w-full">
-                            Contact Me
-                        </Button>
-                        </a>
-                    </div>
-                </div>
-            )}
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const menu = menuRef.current;
+    menu?.querySelector("a")?.focus();
+    const handleKey = (event) => {
+      if (event.key === "Escape") { setIsMenuOpen(false); toggleRef.current?.focus(); }
+      if (event.key === "Tab") {
+        const items = [toggleRef.current, ...menu.querySelectorAll("a")];
+        const first = items[0];
+        const last = items.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
+    const desktop = window.matchMedia("(min-width: 900px)");
+    const closeOnDesktop = (event) => { if (event.matches) setIsMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKey);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [isMenuOpen]);
 
-        </header>
-    );
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <header className="site-header">
+      <div className="scroll-progress" aria-hidden="true" />
+      <nav className="page-container nav-inner" aria-label="Main navigation">
+        <a href="#home" className="brand" aria-label="Ron Rontos home" onClick={closeMenu}>rr<span>.</span><span className="brand-name">RON RONTOS</span></a>
+        <div className="desktop-nav">{navLinks.map((link) => <a key={link.href} href={link.href} className={activeSection === link.href.slice(1) ? "nav-link active" : "nav-link"} aria-current={activeSection === link.href.slice(1) ? "location" : undefined}>{link.label}</a>)}</div>
+        <a href="#contact" className="nav-cta">Let’s talk <ArrowUpRight size={16} /></a>
+        <button ref={toggleRef} className="icon-button menu-toggle" onClick={() => setIsMenuOpen((open) => !open)} aria-label={isMenuOpen ? "Close navigation" : "Open navigation"} aria-expanded={isMenuOpen} aria-controls="mobile-navigation">{isMenuOpen ? <X size={22} /> : <Menu size={22} />}</button>
+      </nav>
+      {isMenuOpen && <div className="mobile-menu-overlay" onClick={closeMenu}><div id="mobile-navigation" ref={menuRef} className="mobile-navigation" onClick={(event) => event.stopPropagation()}><p className="eyebrow">EXPLORE THE PORTFOLIO</p>{[...navLinks, { href: "#contact", label: "Let’s talk" }].map((link, index) => <a key={link.href} href={link.href} onClick={closeMenu}><span className="mono">0{index + 1}</span>{link.label}<ArrowUpRight size={20} /></a>)}<p className="mobile-menu-note">Ideas, good conversations, and meaningful work.</p></div></div>}
+    </header>
+  );
 };

@@ -22,66 +22,25 @@ const testimonials = [
 
 
 
-export const Testimonials = () => {
-    const [activeIdx, setActiveIdx] = useState(0);
 
-    const next = () => {
-        setActiveIdx((prev) => (prev + 1) % testimonials.length);
-    };
-    const previous = () => {
-        setActiveIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
-    return (
-        <section id="testimonials" className="py-32 relative overflow-hidden">
-            <div
-                className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl
-                -translate-x-1/2 -translate-y-1/2"
-            />
-            <div 
-                className="container mx-auto px-6 relative z-10" 
-            >
-                {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in"> 
-                        What People Say
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-                        Kind words from {" "} <span className="font-serif italic font-normal text-white">amazing people</span>
-                    </h2>
-                </div>
-                {/* Testimonial */}
-                <div className="max-w-4xl mx-auto">
-                    <div className="relative">
-                        {/* Main Testimonial */}
-                        <div className="glass p-8 rounded-3xl md:p-12 glow-border animate-fade-in animation-delay-200">
-                            <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                                <Quote className="w-6 h-6 text-primary-foreground"/>
-                            </div>
-                            <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4">"{testimonials[activeIdx].quote}"</blockquote>
-                            <div>
-                                <div>{testimonials[activeIdx].author}</div>
-                                <div>{testimonials[activeIdx].role}</div>
-                            </div>
-                        </div>
-                        {/* navigations */}
-                        <div className="flex items-center justify-center gap-4 mt-8">
-                            <button className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all " onClick={previous}>
-                                <ChevronLeft />
-                            </button>
-                            <div className="flex gap-2">
-                                {testimonials.map((_,idx) =>(
-                                    <button onClick={() => setActiveIdx(idx)} className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                        idx === activeIdx ? "w-8 bg-primary" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                                    }`}/>
-                                ))}
-                            </div>
-                            <button className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all" onClick={next}>
-                                <ChevronRight />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
+export const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const step = (direction) => setActiveIndex((previous) => (previous + direction + testimonials.length) % testimonials.length);
+  const active = testimonials[activeIndex];
+
+  return (
+    <section id="testimonials" className="section-spacing testimonials-section" aria-labelledby="testimonials-title">
+      <div className="page-container">
+        <div className="section-label" data-reveal><span>04 / KIND WORDS</span><span className="section-label-line" /></div>
+        <div className="testimonials-layout" data-reveal>
+          <div className="testimonials-intro"><h2 id="testimonials-title">Good work starts<br />with <span className="text-accent">good people.</span></h2><p className="body-copy">A few words from the people I’ve had the pleasure of working with.</p><div className="testimonial-controls"><button className="icon-button" onClick={() => step(-1)} aria-label="Previous testimonial"><ChevronLeft size={19} /></button><span className="mono">0{activeIndex + 1} <span className="text-muted">/ 0{testimonials.length}</span></span><button className="icon-button" onClick={() => step(1)} aria-label="Next testimonial"><ChevronRight size={19} /></button></div></div>
+          <div className="testimonial-card" role="region" aria-roledescription="carousel" aria-label="Colleague testimonials" onKeyDown={(event) => { if (event.key === "ArrowRight") { event.preventDefault(); step(1); } if (event.key === "ArrowLeft") { event.preventDefault(); step(-1); } }} tabIndex={0}>
+            <Quote className="quote-icon" size={34} strokeWidth={1.25} aria-hidden="true" />
+            <div aria-live="polite" aria-atomic="true" className="testimonial-content" key={activeIndex}><blockquote>“{active.quote}”</blockquote><div className="testimonial-author"><div className="author-avatar" aria-hidden="true">{active.author.split(" ").slice(0, 2).map((part) => part[0]).join("")}</div><div><strong>{active.author}</strong><span>{active.role}</span></div></div></div>
+            <div className="testimonial-dots">{testimonials.map((testimonial, index) => <button key={testimonial.author} onClick={() => setActiveIndex(index)} aria-label={`Show testimonial from ${testimonial.author}`} aria-pressed={activeIndex === index}><span className={activeIndex === index ? "active" : ""} /></button>)}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
