@@ -415,6 +415,13 @@ h2 { font-size: clamp(30px, 3.25vw, 45px); font-weight: 500; line-height: 1.22; 
 .field-hint { display: flex; justify-content: space-between; gap: 15px; margin-top: 6px; font-size: 16px; color: #ffffff; }
 .contact-submit { width: 100%; justify-content: space-between; margin-top: 1px; }
 .form-note { text-align: center; font-size: 16px; color: #ffffff; margin-top: 12px; line-height: 1.8; }
+.contact-email-options { border-top: 1px solid #47614e; margin-top: 24px; padding-top: 20px; color: white; }
+.contact-email-options > p { font-size: 18px; line-height: 1.7; }
+.contact-email-options > div { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 12px; }
+.contact-email-options .text-link { font-size: 18px; line-height: 1.6; min-height: 44px; }
+.contact-delivery-details { margin-top: 16px; border: 1px solid #6e8069; border-radius: 6px; padding: 12px; font-size: 16px; line-height: 1.7; color: white; }
+.contact-delivery-details summary { cursor: pointer; }
+.contact-delivery-details p { overflow-wrap: anywhere; margin-top: 10px; }
 .status-message { display: flex; align-items: flex-start; gap: 10px; border-radius: 4px; padding: 12px; margin-top: 15px; border: 1px solid #678953; background: #273f21; color: #ffffff; font-size: 16px; line-height: 1.8; }
 .status-message > svg { flex-shrink: 0; margin-top: 2px; }
 .status-message p { overflow-wrap: anywhere; }

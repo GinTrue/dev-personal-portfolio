@@ -41,10 +41,40 @@ The dashboard can export orders as CSV. Customers, suppliers, products, and dumm
 
 ```sh
 npm run test:rr
+npm run test:contact
 npm run build
 ```
 
 Transaction tests cover full sales and purchasing lifecycles, partial fulfillment and payments, stock validation, role permissions, rounding, persistence recovery, and transaction locks.
+
+## Contact form email
+
+Direct delivery uses EmailJS. Copy `.env.example` to `.env.local` and supply the service ID, template ID, and **public** key from the EmailJS dashboard. Existing local values can remain in place.
+
+Configure the EmailJS template with:
+
+| Template field | Value |
+| --- | --- |
+| To Email | `ronneldarylrontos@gmail.com` or `{{to_email}}` |
+| From Name | `{{from_name}}` or `{{name}}` |
+| From Email | The connected service's default email address |
+| Reply-To | `{{reply_to}}` or `{{email}}` |
+| Subject | `{{subject}}` or `{{title}}` |
+| Message body | `{{message}}` |
+
+The form supplies both the default Contact Us variables and these custom aliases. The recipient is always taken from the portfolio profile, while Reply-To identifies the visitor. See [EmailJS template settings](https://www.emailjs.com/docs/tutorial/creating-email-template/).
+
+For a hosted build, configure the same three `VITE_EMAILJS_*` values in the host before building. `.env.local` is ignored by Git and will not arrive through a repository deployment. Restart Vite after changing local values, and rebuild/redeploy after changing hosted values; Vite replaces them at build time. See [Vite environment variables](https://vite.dev/guide/env-and-mode.html).
+
+Failures retain the entered message and display an error code. In local development, **Delivery details** shows the provider's response; the browser console also records the status and reason without logging the submitted message or configuration. **Open Gmail draft** and **Use my email app** offer a way to send the same message manually. Opening a draft does not send it.
+
+`npm run test:contact` verifies recipient/reply-to mapping, template compatibility, draft encoding, configuration checks, and provider-error handling. Browser checks can intercept the EmailJS request to verify the form without sending a real message.
+
+### Gmail connection failure
+
+An approved live test returned `412: Gmail_API: Invalid grant. Please reconnect your Gmail account`. This is a rejection of the Gmail authorization held by EmailJS.
+
+Open [EmailJS Email Services](https://dashboard.emailjs.com/admin), select the existing Gmail service, reconnect its Gmail account, authorize the connection, and save/update the service. Keep the existing service ID. This requires the account owner's Google sign-in; changing frontend keys does not renew the Gmail connection. After reconnecting, verify with one contact-form submission. Local development shows this recovery action under **Delivery details** when the same error occurs.
 
 ## Resume
 
