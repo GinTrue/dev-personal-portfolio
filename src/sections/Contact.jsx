@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, CheckCircle2, Copy, LoaderCircle, Mail, MapPin, Phone, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/Button";
+import profile from "@/data/profile.json";
 
-const emailAddress = "ronneldarylrontos@gmail.com";
+const emailAddress = profile.email;
 const projectTypes = ["Web development", "Business system", "Let’s connect"];
 const emailConfigured = Boolean(import.meta.env.VITE_EMAILJS_SERVICE_ID && import.meta.env.VITE_EMAILJS_TEMPLATE_ID && import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
@@ -69,7 +70,7 @@ export const Contact = () => {
       <div className="page-container">
         <div className="section-label" data-reveal><span>05 / WHAT’S NEXT?</span><span className="section-label-line" /></div>
         <div className="contact-layout">
-          <div className="contact-copy" data-reveal><div className="availability"><span className="status-dot" /> Open to opportunities & collaborations</div><h2 id="contact-title">Have something<br />in mind?<br /><span className="text-accent">Let’s build it.</span></h2><p className="body-copy">A project, a role, or just a good conversation. I’d love to hear what you’re working on.</p><div className="contact-email"><a href={`mailto:${emailAddress}`}>{emailAddress}<ArrowUpRight size={19} /></a><button className="icon-button" aria-label={copied ? "Email address copied" : "Copy email address"} onClick={copyEmail}>{copied ? <Check size={16} /> : <Copy size={16} />}</button></div><span className="copy-feedback" role="status">{copied ? "Email address copied!" : ""}</span><div className="contact-facts"><span><MapPin size={16} /> San Jose del Monte, Bulacan, Philippines</span><a href="tel:+639928137915"><Phone size={16} /> +63 992 813 7915 <ArrowUpRight size={13} /></a></div></div>
+          <div className="contact-copy" data-reveal><div className="availability"><span className="status-dot" /> Open to opportunities & collaborations</div><h2 id="contact-title">Have something<br />in mind?<br /><span className="text-accent">Let’s build it.</span></h2><p className="body-copy">A project, a role, or just a good conversation. I’d love to hear what you’re working on.</p><div className="contact-email"><a href={`mailto:${emailAddress}`}>{emailAddress}<ArrowUpRight size={19} /></a><button className="icon-button" aria-label={copied ? "Email address copied" : "Copy email address"} onClick={copyEmail}>{copied ? <Check size={16} /> : <Copy size={16} />}</button></div><span className="copy-feedback" role="status">{copied ? "Email address copied!" : ""}</span><div className="contact-facts"><span><MapPin size={16} /> {profile.location}</span><a href="tel:+639928137915"><Phone size={16} /> {profile.phone} <ArrowUpRight size={13} /></a></div></div>
           <form className="contact-form" onSubmit={handleSubmit} data-reveal>
             <div className="form-heading"><h3>Start a conversation</h3><Mail size={20} /></div>
             <fieldset className="project-type-field"><legend>I’m reaching out about</legend><div className="project-type-options">{projectTypes.map((type) => <button type="button" aria-pressed={projectType === type} onClick={() => setProjectType(type)} key={type}>{type}</button>)}</div></fieldset>

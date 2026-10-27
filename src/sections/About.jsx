@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { ArrowUpRight, Braces, Database, Layers, Workflow } from "lucide-react";
+import profile from "@/data/profile.json";
 
-const skillGroups = {
-  Backend: ["PHP", "Laravel", "Django", "CodeIgniter", "Python", "REST APIs", "Webhooks"],
-  Frontend: ["JavaScript", "HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "jQuery", "AJAX", "Axios"],
-  "Data & tools": ["MySQL", "PostgreSQL", "Git", "GitHub", "Excel exports", "Server management"],
-};
+const skillGroups = profile.portfolioSkills;
 const capabilities = [
   { icon: Braces, title: "Web development", text: "Practical interfaces backed by maintainable, reliable code." },
-  { icon: Workflow, title: "Workflow automation", text: "Connecting tools and simplifying the work between them." },
+  { icon: Workflow, title: "Workflow automation", text: "Connecting APIs and turning business processes into practical tools." },
   { icon: Database, title: "Business systems", text: "ERP, accounting, and internal tools built around real needs." },
   { icon: Layers, title: "End-to-end thinking", text: "An IT support background. A developer’s eye for the bigger picture." },
 ];
@@ -39,7 +36,7 @@ export const About = () => {
             <h2 id="about-title">A developer’s mindset.<br /><span className="text-muted">A problem-solver’s instinct.</span></h2>
             <p className="body-copy about-intro">Good software starts with understanding the people who use it.</p>
             <p className="body-copy">My journey from IT support to software development taught me to look beyond the screen. I build and maintain web systems that help teams manage their operations, connect their tools, and get things done.</p>
-            <p className="body-copy">Today, I work with Laravel, PHP, Python, and modern web tools to turn everyday challenges into dependable solutions. There’s always something new to learn, and that’s my favorite part.</p>
+            <p className="body-copy">At Kuga Energy, I develop CRM enhancements, solar quotation interfaces, and operational dashboards. I help translate audit and inspection processes into application requirements, customize WordPress, and keep applications and Linux servers running reliably.</p>
             <a href="#experience" className="text-link">Get to know my journey <ArrowUpRight size={16} /></a>
           </div>
           <div className="about-details" data-reveal>

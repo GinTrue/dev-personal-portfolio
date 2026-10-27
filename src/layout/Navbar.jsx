@@ -38,7 +38,7 @@ export const Navbar = () => {
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
       }
     };
-    const desktop = window.matchMedia("(min-width: 900px)");
+    const desktop = window.matchMedia("(min-width: 1101px)");
     const closeOnDesktop = (event) => { if (event.matches) setIsMenuOpen(false); };
     desktop.addEventListener("change", closeOnDesktop);
     document.addEventListener("keydown", handleKey);

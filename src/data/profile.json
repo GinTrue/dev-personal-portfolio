@@ -1,0 +1,91 @@
+{
+  "name": "Ronnel Daryl Rontos",
+  "title": "Full Stack Developer | Systems Engineer | Business Applications",
+  "location": "Rodriguez, Rizal, Philippines",
+  "phone": "+63 992 813 7915",
+  "email": "ronneldarylrontos@gmail.com",
+  "github": "https://github.com/GinTrue/",
+  "linkedin": "https://www.linkedin.com/in/darylrontos/",
+  "summary": "Full Stack Developer and Systems Engineer with experience developing web applications, CRM enhancements, internal business systems, and process automation. Skilled in PHP, Laravel, CodeIgniter, Python/Django, JavaScript, React, SQL databases and REST APIs. Combines software delivery with WordPress customization, Linux server administration, database troubleshooting, networking and L1–L2 technical support.",
+  "skills": {
+    "Languages & frameworks": ["PHP", "Laravel", "CodeIgniter", "Python", "Django", "JavaScript", "TypeScript", "React", "jQuery", "HTML5", "CSS3"],
+    "Frontend & APIs": ["Bootstrap", "Tailwind CSS", "AJAX", "Axios", "REST APIs", "Webhooks", "Third-party API integration"],
+    "Databases & security": ["MySQL", "MariaDB", "PostgreSQL", "SQL query optimization", "Relational database design", "RBAC", "Authentication and authorization"],
+    "DevOps & CMS": ["Git", "GitHub", "Bitbucket", "GitHub Actions/CI/CD", "Linux/Ubuntu", "DigitalOcean", "SSH", "Nginx", "PHP-FPM", "WordPress", "XAMPP"],
+    "IT & networking": ["LAN troubleshooting", "D-Link VLAN configuration", "Network segmentation", "Active Directory", "Hardware/software support"]
+  },
+  "portfolioSkills": {
+    "Backend": ["PHP", "Laravel", "Django", "CodeIgniter", "Python", "MySQL", "MariaDB", "PostgreSQL"],
+    "Frontend": ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "jQuery", "AJAX", "Axios"],
+    "APIs & security": ["REST APIs", "Webhooks", "Third-party integrations", "RBAC", "Authentication", "Authorization"],
+    "Tools & ops": ["Git", "GitHub", "Bitbucket", "CI/CD", "Linux/Ubuntu", "DigitalOcean", "SSH", "Nginx", "PHP-FPM", "WordPress", "Active Directory", "VLAN"]
+  },
+  "experiences": [
+    {
+      "period": "June 2026 – Present",
+      "role": "Full Stack Development & Systems Support",
+      "company": "Kuga Energy",
+      "current": true,
+      "description": "Develop and enhance internal CRM workflows for warranty claims, cost centres, and subcontractor management dashboards. Work on solar quotation and calculation interfaces for rooftop assessments, battery incentives, and NSW/VIC quoting workflows. Translate audit and inspection forms into application requirements and interfaces, customize WordPress/PHP forms with signature capture and PDF generation, and maintain Ubuntu/DigitalOcean environments, Git deployments, PHP services, database connectivity, and site security.",
+      "bullets": [
+        "Develop and enhance internal CRM and business workflows, including warranty-claim features, cost-centre functionality and subcontractor management dashboards.",
+        "Work on solar quotation and calculation interfaces, including requirements for rooftop assessments, battery incentives and NSW/VIC quoting workflows.",
+        "Support the design of audit and inspection modules by translating business forms and spreadsheet processes into implementation requirements and application interfaces.",
+        "Customize and troubleshoot WordPress/PHP website functionality, including online forms, signature capture and PDF document generation.",
+        "Maintain and troubleshoot Ubuntu/DigitalOcean application environments, SSH access, Git deployments, PHP services, database connectivity and site security incidents."
+      ],
+      "technologies": ["PHP", "WordPress", "Ubuntu", "DigitalOcean", "SSH", "Git", "CRM", "PDF Generation"]
+    },
+    {
+      "period": "January 2026 – June 2026",
+      "role": "Systems Engineer / Full Stack Developer",
+      "company": "Inaveit Systems Technologies Inc.",
+      "current": false,
+      "description": "Developed web-based applications with PHP, MySQL, jQuery, AJAX, Bootstrap, and Tailwind CSS to support internal business processes. Integrated REST APIs and webhooks, implemented role-based permissions, authentication, and authorization, and maintained WordPress custom themes, relational database schemas, Git workflows, and GitHub Actions CI/CD pipelines.",
+      "bullets": [
+        "Developed web-based applications with PHP, MySQL, jQuery, AJAX, Bootstrap and Tailwind CSS, supporting internal business processes.",
+        "Integrated REST APIs and webhooks; implemented role-based permissions, authentication and authorization.",
+        "Maintained WordPress custom themes, relational schemas, Git workflows and CI/CD pipelines using GitHub Actions."
+      ],
+      "technologies": ["PHP", "MySQL", "jQuery", "AJAX", "Bootstrap", "Tailwind CSS", "REST APIs", "Webhooks", "RBAC", "GitHub Actions", "WordPress"]
+    },
+    {
+      "period": "April 2025 – January 2026",
+      "role": "Full Stack Web Developer",
+      "company": "Exponential Technologies",
+      "current": false,
+      "description": "Developed and maintained digital accounting software using Django and PostgreSQL. Built backend logic for financial transaction processing, designed and integrated REST APIs, and optimized database queries. Delivered responsive frontend features using JavaScript, jQuery, AJAX, Bootstrap, and Axios while collaborating on new accounting modules.",
+      "bullets": [
+        "Developed and maintained an accounting software platform with Django and PostgreSQL, including financial transaction workflows and backend logic.",
+        "Built REST APIs and responsive interfaces using JavaScript, jQuery, AJAX, Bootstrap and Axios; optimized database queries."
+      ],
+      "technologies": ["Django", "Python", "PostgreSQL", "JavaScript", "jQuery", "AJAX", "Bootstrap", "REST APIs", "Axios", "Git"]
+    },
+    {
+      "period": "February 2022 – April 2025",
+      "role": "IT Assistant / L1–L2 Technical Support",
+      "company": "Antz Insurance and Services Inc.",
+      "current": false,
+      "description": "Provided hardware and software support, diagnosed workstation issues, and repaired or replaced RAM, storage, and peripherals. Configured VLANs using D-Link switches, resolved LAN connectivity issues, and managed Active Directory accounts and access. Developed internal business process automation systems with CodeIgniter, MySQL, and JavaScript in XAMPP.",
+      "bullets": [
+        "Provided workstation hardware/software support, diagnostics, upgrades and repairs across end-user environments.",
+        "Configured D-Link switch VLANs, supported LAN connectivity and network segmentation, and administered Active Directory access.",
+        "Developed internal process automation tools using PHP/CodeIgniter, MySQL, JavaScript and XAMPP."
+      ],
+      "technologies": ["CodeIgniter", "PHP", "MySQL", "JavaScript", "XAMPP", "Active Directory", "VLAN", "LAN", "IT Support"]
+    }
+  ],
+  "projects": [
+    { "name": "Kuga CRM & Operational Dashboards", "description": "Warranty claims, cost-centre enhancements and subcontractor workflow visibility." },
+    { "name": "Solar Quotation / ITC Inspection Workflows", "description": "Solar calculator interfaces and inspection-form-to-system implementation requirements." },
+    { "name": "ISTI ERP & ISTI Ticketing", "description": "Internal business process automation and ticketing solutions using PHP/CodeIgniter and MySQL." },
+    { "name": "Dahua Turnstile–HRIS Integration", "description": "Integrated turnstile API data into an HR information system." },
+    { "name": "Accounting Software Platform", "description": "Django/PostgreSQL financial processing application and REST API development." },
+    { "name": "Akronpeak.com", "description": "Website development using PHP, HTML, CSS, Bootstrap, JavaScript and jQuery." }
+  ],
+  "education": {
+    "degree": "Bachelor of Science in Computer Science",
+    "school": "Asian Institute of Computer Studies",
+    "period": "2017 – 2021"
+  }
+}
